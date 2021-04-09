@@ -46,6 +46,8 @@ flutter:
 
   assets:
   - assets/dunski.jpg
+  - assets/railink.png
+  - assets/esaunggul.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

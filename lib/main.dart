@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tugas2_pm/collage.dart';
+import 'package:tugas2_pm/company.dart';
+import 'package:tugas2_pm/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,59 +11,59 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("Tugas 2 - Pemrograman Mobile")),
-        body: Column(children: <Widget>[
-          Center(
-            child: Text(
-              'Selamat Datang Di Universitas Esa Unggul',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
+      home: Homepage(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.lightBlueAccent,
+      ),
+    );
+  }
+}
+
+class Homepage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 150.0,
+                height: 150.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Image.asset(
+                  'assets/dunski.jpg',
+                  width: 100.0,
+                ),
+              ),
+              SizedBox(
+                width: 30.0,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[Text("Don't stop playing ..")],
+              )
+            ],
           ),
-          Center(
-            child: Text(
-              'Program Studi Teknik Informatika - Fakultas Ilmu Komputer',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
+          Profile(
+            location: 'Jakarta',
+            nim: '20180801185',
+            name: 'Eko Prasetyo',
           ),
-          Container(
-            padding: EdgeInsets.all(20.0),
-            child: Image.asset(
-              'assets/dunski.jpg',
-              width: 100.0,
-            ),
+          Company(
+            company: 'PT. Railink',
+            location: 'Jakarta',
           ),
-          Center(
-            child: Text(
-              'Nama : Eko Prasetyo',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
-          ),
-          Center(
-            child: Text(
-              'NIP : 20180801185',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
-          ),
-          Center(
-            child: Text(
-              'Hobby : Bermain Game',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
-          ),
-          Center(
-            child: Text(
-              'Pekerjaan : Network Engineer',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
-          ),
-          Center(
-            child: Text(
-              'Status : Undercover',
-              style: (TextStyle(color: Colors.lightBlue)),
-            ),
-          ),
-        ]),
+          Collage(
+            collage: 'Esa Unggul University',
+            location: 'Jakarta',
+          )
+        ],
       ),
     );
   }
