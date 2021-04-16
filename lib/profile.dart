@@ -12,7 +12,7 @@ class Profile extends StatelessWidget {
     return Container(
       color: Colors.white,
       height: 80.0,
-      width: 300.0,
+      width: 160.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

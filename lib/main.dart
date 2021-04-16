@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tugas2_pm/collage.dart';
 import 'package:tugas2_pm/company.dart';
+import 'package:tugas2_pm/dropdown.dart';
 import 'package:tugas2_pm/profile.dart';
 
 void main() {
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Homepage(),
+      home: DropDown(),
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.lightBlueAccent,
+        scaffoldBackgroundColor: Colors.blueGrey,
       ),
     );
   }
