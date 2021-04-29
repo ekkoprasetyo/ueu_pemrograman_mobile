@@ -7,14 +7,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController txt_username = TextEditingController(text: "Username");
-  TextEditingController txt_password = TextEditingController(text: "Password");
+  TextEditingController txtUsername = TextEditingController(text: "Username");
+  TextEditingController txtPassword = TextEditingController(text: "Password");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.adb_rounded),
-        title: Text('Monitoring WFH LBS'),
+        title: Text('Absensi WFH'),
         flexibleSpace: Container(
             decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -31,8 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         margin: EdgeInsets.all(20.0),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          child: ListView(
             children: <Widget>[
               Container(
                 width: 200,
@@ -41,11 +40,9 @@ class _LoginPageState extends State<LoginPage> {
                   image: AssetImage('assets/gps.jpeg'),
                 ),
               ),
+              TextField(controller: txtUsername),
               TextField(
-                controller: txt_username,
-              ),
-              TextField(
-                controller: txt_password,
+                controller: txtPassword,
               ),
               RaisedButton(
                 child: Text('Login'),

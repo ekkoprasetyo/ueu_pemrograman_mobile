@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas2_pm/login_page.dart';
 
 class ListWFH extends StatefulWidget {
   @override
@@ -10,8 +11,7 @@ class _ListWFHState extends State<ListWFH> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.adb_rounded),
-          title: Text('List Karyawan WFH'),
+          title: Text('List Absensi Karyawan'),
           flexibleSpace: Container(
               decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -19,7 +19,21 @@ class _ListWFHState extends State<ListWFH> {
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           )),
-          actions: [Icon(Icons.logout)],
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.logout),
+              tooltip: 'Logout',
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => LoginPage(),
+                  ),
+                  (route) => false,
+                );
+              },
+            ),
+          ],
         ),
         body: Stack(
           children: <Widget>[
@@ -35,15 +49,15 @@ class _ListWFHState extends State<ListWFH> {
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(20.0),
                   children: <Widget>[
-                    GenerateListWFH(
+                    generateWFHList(
                         context, 'Ardi Dwi', 'Jakarta Barat, Indonesia'),
-                    GenerateListWFH(
+                    generateWFHList(
                         context, 'Puspa', 'Jakarta Barat, Indonesia'),
-                    GenerateListWFH(
+                    generateWFHList(
                         context, 'Handi Haryadi', 'Jakarta Barat, Indonesia'),
-                    GenerateListWFH(
+                    generateWFHList(
                         context, 'Row Suryo', 'Jakarta Barat, Indonesia'),
-                    GenerateListWFH(
+                    generateWFHList(
                         context, 'Udin Ganteng', 'Jakarta Barat, Indonesia'),
                   ]),
             ),
@@ -51,7 +65,7 @@ class _ListWFHState extends State<ListWFH> {
         ));
   }
 
-  Center GenerateListWFH(BuildContext context, String name, String location) {
+  Center generateWFHList(BuildContext context, String name, String location) {
     return Center(
         child: SizedBox(
       width: MediaQuery.of(context).size.width * 0.9,

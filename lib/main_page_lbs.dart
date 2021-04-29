@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas2_pm/list_wfh_page.dart';
+import 'package:tugas2_pm/login_page.dart';
 
 class MainPageLBS extends StatefulWidget {
   @override
@@ -11,7 +12,6 @@ class _MainPageLBSState extends State<MainPageLBS> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.adb_rounded),
           title: Text('Absensi WFH'),
           flexibleSpace: Container(
               decoration: BoxDecoration(
@@ -20,7 +20,21 @@ class _MainPageLBSState extends State<MainPageLBS> {
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight),
           )),
-          actions: [Icon(Icons.logout)],
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.logout),
+              tooltip: 'Logout',
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => LoginPage(),
+                  ),
+                  (route) => false,
+                );
+              },
+            ),
+          ],
         ),
         body: Stack(
           children: <Widget>[
@@ -43,6 +57,23 @@ class _MainPageLBSState extends State<MainPageLBS> {
                         Column(
                           children: [
                             Text('Selamat Datang Eko Prasetyo ..'),
+                            Divider(),
+                            Row(
+                              children: [
+                                Text(
+                                  'Status Absensi Anda : ',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.blue),
+                                ),
+                                Text(
+                                  'MASUK',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.green),
+                                ),
+                              ],
+                            ),
                             Text(
                               'Silahkan melakukan absensi ..',
                               style: TextStyle(
